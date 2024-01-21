@@ -11,22 +11,17 @@ class ContactForm extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
+
     if (name === 'name') {
-      const cleanedValue = value.replace(/[^a-zA-Z '-]/g, '');
-      this.setState({ [name]: cleanedValue });
+      // Permite numai litere, apostrof, cratimă și spații pentru nume.
+      const cleanedName = value.replace(/[^a-zA-Z '-]/g, '');
+      this.setState({ [name]: cleanedName });
     } else if (name === 'number') {
-      this.setState({ [name]: value });
-    } else {
-      this.setState({ [name]: value });
+      // Permite numai cifre și anumite caractere pentru numărul de telefon.
+      const cleanedNumber = value.replace(/[^\d+() -]/g, '');
+      this.setState({ [name]: cleanedNumber });
     }
   };
-
-  //   handleFilterChange = event => {
-  //     // Actualizăm starea pentru câmpul de căutare în funcția handleFilterChange
-  //     this.setState({ filter: event.target.value });
-  //     // Apelăm funcția onFilterChange pentru a trimite filtrul către componenta părinte (App)
-  //     this.props.onFilterChange(event.target.value);
-  //   };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -56,12 +51,6 @@ class ContactForm extends Component {
             required
             value={this.state.number}
             onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Search by name"
-            value={this.props.filter}
-            onChange={this.props.onFilterChange}
           />
         </label>
         <button type="submit">Add contact</button>
