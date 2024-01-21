@@ -1,3 +1,30 @@
-@import-normalize; 
+@import-normalize;
 
-
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  background-image: url('../assets/notebook.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: opacity 0.5;
+}
+@media (min-width: 500px) {
+  #root {
+    padding-top: 130px;
+  }
+}
+@media (min-width: 1200px) {
+  #root {
+    padding-top: 130px;
+  }
+}

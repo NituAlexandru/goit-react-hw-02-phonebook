@@ -4,6 +4,7 @@ import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import Notiflix from 'notiflix';
+import styles from './App.module.css'
 
 class App extends Component {
   state = {
@@ -97,7 +98,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
+        <h1 className={styles.title}>Phonebook</h1>
         <ContactForm
           onAddContact={this.handleAddContact}
           onFilterChange={this.handleFilterChange}
